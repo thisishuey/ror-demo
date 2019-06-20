@@ -1,1 +1,2 @@
-module JobsHelper; end
+module JobsHelper
+end
