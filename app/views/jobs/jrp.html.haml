@@ -1,0 +1,12 @@
+%p#notice= notice
+
+.job-listings
+  - @jobs.each do |job|
+    .job-listing
+      .job-title= job.title
+      .job-subtitle= job.company + ' | ' + job.city + ', ' + job.state
+      -# distance will be calculated based on job address
+      .job-distance 20m
+      .job-rate= job.rate
+      .job-favorite= job.favorite
+      .job-score= job.expired ? 'Expired' : job.score

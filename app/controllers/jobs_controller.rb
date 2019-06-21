@@ -7,6 +7,11 @@ class JobsController < ApplicationController
     @jobs = Job.all
   end
 
+  # GET /jobs/jrp
+  def jrp
+    @jobs = Job.all
+  end
+
   # GET /jobs/1
   # GET /jobs/1.json
   def show; end
