@@ -17,8 +17,18 @@
 //= require_tree .
 
 $(document).ready(function() {
-  $("a").click(function(event) {
-    alert("Jquery is working!");
+  $(".job-title a").click(function(event) {
     event.preventDefault();
+    $.ajax({
+      url: $(this).attr("href"),
+      type: "GET",
+      dataType: "html",
+      success: function(data) {
+        $("#jdp").replaceWith($("#jdp").html(data));
+      },
+      error: function(xhr, status) {
+        alert("Sorry there was a problem.");
+      }
+    });
   });
 });

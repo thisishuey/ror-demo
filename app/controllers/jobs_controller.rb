@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: %i[show edit update destroy]
+  before_action :set_job, only: %i[show edit update destroy jdp]
 
   # GET /jobs
   # GET /jobs.json
@@ -15,6 +15,9 @@ class JobsController < ApplicationController
   # GET /jobs/1
   # GET /jobs/1.json
   def show; end
+
+  # GET /jobs/jdp/1
+  def jdp; end
 
   # GET /jobs/new
   def new
