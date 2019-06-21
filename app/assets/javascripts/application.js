@@ -17,18 +17,21 @@
 //= require_tree .
 
 $(document).ready(function() {
-  $(".job-title a").click(function(event) {
-    event.preventDefault();
-    $.ajax({
-      url: $(this).attr("href"),
-      type: "GET",
-      dataType: "html",
-      success: function(data) {
-        $("#jdp").replaceWith($("#jdp").html(data));
-      },
-      error: function(xhr, status) {
-        alert("Sorry there was a problem.");
-      }
-    });
-  });
+  $(".job-title a")
+    .click(function(event) {
+      event.preventDefault();
+      $.ajax({
+        url: $(this).attr("href"),
+        type: "GET",
+        dataType: "html",
+        success: function(data) {
+          $(".job-details#jdp").replaceWith($(".job-details#jdp").html(data));
+        },
+        error: function(xhr, status) {
+          alert("Sorry there was a problem.");
+        }
+      });
+    })
+    .first()
+    .trigger("click");
 });
