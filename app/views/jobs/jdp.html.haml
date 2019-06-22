@@ -12,11 +12,18 @@
   .job-rate= @job.rate
   %button= link_to "Apply Now", "/"
 
+.job-content
   %h3 Description
   = @job.description
 
-  %h3 Main Duties &amp; Responsibilities
-  -# = @job.responsibilities
+  - if @job.responsibilities.length > 0 then
+    %h3 Main Duties &amp; Responsibilities
+    %ul.dashes
+      - @job.responsibilities.each do |responsibility|
+        %li= responsibility.content
 
-  %h3 Skills
-  -# = @job.skills
+  - if @job.skills.length > 0 then
+    %h3 Skills
+    %ul.dashes
+      - @job.skills.each do |skill|
+        %li= skill.content

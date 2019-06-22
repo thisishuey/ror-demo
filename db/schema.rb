@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_22_145814) do
+ActiveRecord::Schema.define(version: 2019_06_22_150631) do
 
   create_table "jobs", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -25,6 +25,22 @@ ActiveRecord::Schema.define(version: 2019_06_22_145814) do
     t.boolean "expired"
     t.string "score"
     t.string "description"
+  end
+
+  create_table "responsibilities", force: :cascade do |t|
+    t.text "content"
+    t.integer "job_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_id"], name: "index_responsibilities_on_job_id"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "content"
+    t.integer "job_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_id"], name: "index_skills_on_job_id"
   end
 
 end

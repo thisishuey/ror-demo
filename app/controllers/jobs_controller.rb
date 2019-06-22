@@ -92,9 +92,7 @@ class JobsController < ApplicationController
       :favorite,
       :expired,
       :score,
-      :description,
-      :responsibilities,
-      :skills
+      :description
     )
   end
 end

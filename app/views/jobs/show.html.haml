@@ -33,6 +33,32 @@
   %strong Description
   = @job.description
 
+%p
+  %strong Main Duties &amp; Responsibilities
+  %ul.dashes
+    - @job.responsibilities.each do |responsibility|
+      %li= responsibility.content
+
+%p
+  %strong Skills
+  %ul.dashes
+    - @job.skills.each do |skill|
+      %li= skill.content
+
+%h2 Add Main Duty &amp; Responsibility
+= form_with(model: [ @job, @job.responsibilities.build ], local: true) do |form|
+  %p
+    = form.text_area :content
+  %p
+    = form.submit
+
+%h2 Add Skill
+= form_with(model: [ @job, @job.skills.build ], local: true) do |form|
+  %p
+    = form.text_field :content
+  %p
+    = form.submit
+
 = link_to 'Edit', edit_job_path(@job)
 |
 = link_to 'Back', jobs_path
