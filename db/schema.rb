@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_21_133859) do
+ActiveRecord::Schema.define(version: 2019_06_22_145814) do
 
   create_table "jobs", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -25,8 +25,6 @@ ActiveRecord::Schema.define(version: 2019_06_21_133859) do
     t.boolean "expired"
     t.string "score"
     t.string "description"
-    t.string "responsibilities"
-    t.string "skills"
   end
 
 end
