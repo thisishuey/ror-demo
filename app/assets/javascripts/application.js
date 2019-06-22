@@ -17,11 +17,11 @@
 //= require_tree .
 
 $(document).ready(function() {
-  $(".job-title a")
+  $("[data-jdp-url]")
     .click(function(event) {
       event.preventDefault();
       $.ajax({
-        url: $(this).attr("href"),
+        url: $(this).data("jdp-url"),
         type: "GET",
         dataType: "html",
         success: function(data) {

@@ -1,9 +1,17 @@
 %p#notice= notice
 
 .job-listings
+  %strong 150 Jobs Found
+  %a{:href => "#"} Save Search
+  .sort
+    Sort By:
+    %a.active{:href => "#"} Relevancy
+    |
+    %a{:href => "#"} Date
   - @jobs.each do |job|
-    .job-listing
-      .job-title= link_to job.title, action: "jdp", id: job
+    .job-listing{:"data-jdp-url" => "/jobs/jdp/#{job.id}"}
+      [Company Logo]
+      .job-title= job.title
       .job-subtitle= job.company + ' | ' + job.city + ', ' + job.state
       -# distance will be calculated based on job address
       .job-distance 20m

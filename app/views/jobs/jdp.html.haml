@@ -1,29 +1,86 @@
+%a{:href => "#"} Back
+
 .job-header
-  .job-favorite
-    Favorite
-    = @job.favorite
-  .job-title= @job.title
-  .job-meta
-    %span.job-company= @job.company
-    |
-    %span.job-address= @job.city + ", " + @job.state
-    |
-    %span.job-position= @job.position
-  .job-rate= @job.rate
-  %button= link_to "Apply Now", "/"
+  [Job Image]
+  .job-overlay
+    [Company Logo]
+    .job-favorite
+      Favorite
+      = @job.favorite
+    .job-title= @job.title
+    .job-meta
+      = @job.company
+      |
+      = @job.city + ", " + @job.state
+      |
+      = @job.position
+    .job-rate= @job.rate
+    %button Apply Now
 
 .job-content
-  %h3 Description
-  = @job.description
+  .tab-bar
+    .tab Job Details
+    .tab Company Overview
+    .icons
+      .icon.location Location
+      .icon.share Share
+      .icon.favorite Favorite
 
-  - if @job.responsibilities.length > 0 then
-    %h3 Main Duties &amp; Responsibilities
-    %ul.dashes
-      - @job.responsibilities.each do |responsibility|
-        %li= responsibility.content
+  .tab-content
 
-  - if @job.skills.length > 0 then
-    %h3 Skills
-    %ul.dashes
-      - @job.skills.each do |skill|
-        %li= skill.content
+    .job-info
+      %h3 Description
+      = @job.description
+
+      - if @job.responsibilities.length > 0 then
+        %h3 Main Duties &amp; Responsibilities
+        %ul.dashes
+          - @job.responsibilities.each do |responsibility|
+            %li= responsibility.content
+
+      - if @job.skills.length > 0 then
+        %h3 Skills
+        %ul.dashes
+          - @job.skills.each do |skill|
+            %li= skill.content
+
+    .job-sidebar
+      .recommended-jobs
+        %h3 Recommended Jobs
+        [Jobs List]
+
+      .job-location
+        %h3 Location
+        %p
+          Candidates with similar background are in
+          %a{:href => "#"} High Demand
+        [Google Map]
+
+      .job-salary-estimator
+        %h3 Salary Estimator
+        %p Based on Job Title, Location and Skills
+        [Salary Chart]
+        %a{:href => "#"} Get Personalized Salary
+
+      .job-make-more-money
+        %h3 Make More Money
+        %p See the next step in your career
+        %ul
+          %li.active
+            %h4 Customer Service Representative
+            %p This Role
+          %li
+            %p Account Manager
+            %p Estimated Salary: $20 - $25/hr
+            %p You need 5 skills - Approx. 20 hrs of training
+          %li
+            %p Customer Service Manager
+            %p Estimated Salary: $25 - $30/hr
+            %p You need 8 skills - Approx. 30 hrs of training
+
+  .apply-now
+    %p
+      %strong Apply to this job.
+      %br
+      Think you're the perfect candidate?
+    %button Apply Now
