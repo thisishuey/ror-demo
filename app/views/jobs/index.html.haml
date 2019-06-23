@@ -1,21 +1,19 @@
-%p#notice= notice
-
-%h1 Jobs
-
-%table
-  %thead
-    %tr
-      %th Title
-      %th Company
-      %th{:colspan => 3}
-  %tbody
-    - @jobs.each do |job|
+.scaffold
+  %p#notice= notice
+  %h1 Jobs
+  %table
+    %thead
       %tr
-        %td
-          %strong= job.title
-        %td= job.company
-        %td= link_to 'Show', job
-        %td= link_to 'Edit', edit_job_path(job)
-        %td= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' }
-
-%p= link_to 'New Job', new_job_path
+        %th Title
+        %th Company
+        %th{:colspan => 3}
+    %tbody
+      - @jobs.each do |job|
+        %tr
+          %td
+            %strong= job.title
+          %td= job.company
+          %td= link_to 'Show', job
+          %td= link_to 'Edit', edit_job_path(job)
+          %td= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' }
+  %p= link_to 'New Job', new_job_path

@@ -1,52 +1,46 @@
-%p#notice= notice
-
-%h1 Show Job
-
-%p
-  %strong Title:
-  = @job.title
-%p
-  %strong Company:
-  = @job.company
-%p
-  %strong City:
-  = @job.city
-%p
-  %strong State:
-  = @job.state
-%p
-  %strong Position:
-  = @job.position
-%p
-  %strong Rate
-  = @job.rate
-%p
-  %strong Favorite
-  = @job.favorite
-%p
-  %strong Expired
-  = @job.expired
-%p
-  %strong Score
-  = @job.score
-%p
-  %strong Description
-  = @job.description
-
-%p
-  %strong Responsibilities
-  %ul= render @job.responsibilities
-
-%p
-  %strong Skills
-  %ul= render @job.skills
-
-%h2 Add Responsibility
-= render 'responsibilities/form'
-
-%h2 Add Skill
-= render 'skills/form'
-
-= link_to 'Edit', edit_job_path(@job)
-|
-= link_to 'Back', jobs_path
+.scaffold
+  %p#notice= notice
+  %h1 Show Job
+  %p
+    %strong Title:
+    = @job.title
+  %p
+    %strong Company:
+    = @job.company
+  %p
+    %strong City:
+    = @job.city
+  %p
+    %strong State:
+    = @job.state
+  %p
+    %strong Position:
+    = @job.position
+  %p
+    %strong Rate
+    = @job.rate
+  %p
+    %strong Favorite
+    = @job.favorite
+  %p
+    %strong Expired
+    = @job.expired
+  %p
+    %strong Score
+    = @job.score
+  %p
+    %strong Description
+    = @job.description
+  %p
+    %strong Responsibilities
+    %ul= render @job.responsibilities
+  %p
+    %strong Skills
+    %ul= render @job.skills
+  %h2 Add Responsibility
+  = render 'responsibilities/form'
+  %h2 Add Skill
+  = render 'skills/form'
+  = link_to 'Edit', edit_job_path(@job)
+  |
+  = link_to 'Back', jobs_path
