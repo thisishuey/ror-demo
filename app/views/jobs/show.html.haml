@@ -34,7 +34,7 @@
   = @job.description
 
 %p
-  %strong Main Duties &amp; Responsibilities
+  %strong Responsibilities
   %ul.dashes
     - @job.responsibilities.each do |responsibility|
       %li= responsibility.content
@@ -45,7 +45,7 @@
     - @job.skills.each do |skill|
       %li= skill.content
 
-%h2 Add Main Duty &amp; Responsibility
+%h2 Add Responsibility
 = form_with(model: [ @job, @job.responsibilities.build ], local: true) do |form|
   %p
     = form.text_area :content
