@@ -1,0 +1,5 @@
+= form_with(model: [ @job, @job.responsibilities.build ], local: true) do |form|
+  %p
+    = form.text_area :content
+  %p
+    = form.submit

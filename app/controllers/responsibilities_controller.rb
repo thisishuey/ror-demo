@@ -5,6 +5,13 @@ class ResponsibilitiesController < ApplicationController
     redirect_to job_path(@job)
   end
 
+  def destroy
+    @job = Job.find(params[:job_id])
+    @responsibility = @job.responsibilities.find(params[:id])
+    @responsibility.destroy
+    redirect_to job_path(@job)
+  end
+
   private
 
   def responsibility_params

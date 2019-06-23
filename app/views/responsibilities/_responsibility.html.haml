@@ -1,0 +1,6 @@
+%li
+  = responsibility.content
+  = link_to 'Destroy',
+    [responsibility.job, responsibility],
+    method: :delete,
+    data: { confirm: 'Are you sure?' }

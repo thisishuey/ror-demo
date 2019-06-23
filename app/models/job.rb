@@ -1,4 +1,4 @@
 class Job < ApplicationRecord
-  has_many :responsibilities
-  has_many :skills
+  has_many :responsibilities, dependent: :destroy
+  has_many :skills, dependent: :destroy
 end

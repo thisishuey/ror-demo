@@ -35,29 +35,17 @@
 
 %p
   %strong Responsibilities
-  %ul.dashes
-    - @job.responsibilities.each do |responsibility|
-      %li= responsibility.content
+  %ul= render @job.responsibilities
 
 %p
   %strong Skills
-  %ul.dashes
-    - @job.skills.each do |skill|
-      %li= skill.content
+  %ul= render @job.skills
 
 %h2 Add Responsibility
-= form_with(model: [ @job, @job.responsibilities.build ], local: true) do |form|
-  %p
-    = form.text_area :content
-  %p
-    = form.submit
+= render 'responsibilities/form'
 
 %h2 Add Skill
-= form_with(model: [ @job, @job.skills.build ], local: true) do |form|
-  %p
-    = form.text_field :content
-  %p
-    = form.submit
+= render 'skills/form'
 
 = link_to 'Edit', edit_job_path(@job)
 |

@@ -5,6 +5,13 @@ class SkillsController < ApplicationController
     redirect_to job_path(@job)
   end
 
+  def destroy
+    @job = Job.find(params[:job_id])
+    @skill = @job.skills.find(params[:id])
+    @skill.destroy
+    redirect_to job_path(@job)
+  end
+
   private
 
   def skill_params
