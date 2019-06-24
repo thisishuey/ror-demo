@@ -16,13 +16,19 @@ $yellow: rgb(245, 206, 110);
 $font-weight-bold: 700;
 
 .job {
-  color: $grey;
   background-color: $white;
-  margin: 0;
+  color: $grey;
+  display: grid;
   font-family: lato, sans-serif;
-  font-size: 16px;
-  line-height: 1.5rem;
-  width: 100vw;
+  font-size: 0.75rem;
+  grid-template-areas:
+    "jrp header header header"
+    "jrp tabbar tabbar tabbar"
+    "jrp jdp jdp sidebar"
+    "jrp jdp jdp sidebar"
+    "jrp footer footer footer";
+  line-height: 1.1rem;
+  margin: 0;
   overflow: scroll;
 
   strong {
@@ -63,18 +69,18 @@ $font-weight-bold: 700;
     border-radius: 0.5rem;
     margin-right: 0.5rem;
     max-height: 3.125rem;
-    max-width: 3rem;
+    max-width: 3.125rem;
     overflow: hidden;
     text-indent: -999rem;
   }
 
   .title {
     color: $black;
+    font-size: 1rem;
     font-weight: $font-weight-bold;
   }
 
   .subtitle {
-    font-size: 0.7rem;
     font-weight: $font-weight-bold;
   }
 
@@ -96,15 +102,12 @@ $font-weight-bold: 700;
     border-radius: 0.5rem;
     color: $white;
     display: inline-block;
-    font-size: 0.5rem;
     font-weight: $font-weight-bold;
     line-height: 0.5rem;
     padding: 0.2rem 0.5rem;
   }
 
   .score {
-    font-size: 0.75rem;
-
     span {
       margin-left: 0.25rem;
     }
@@ -120,8 +123,13 @@ $font-weight-bold: 700;
     }
   }
 
+  .listings {
+    grid-area: jrp;
+  }
+
   .listing {
     border-top: 1px solid $light-grey;
+    line-height: 1.1rem;
     margin: 1rem;
     padding-top: 1rem;
     display: flex;
@@ -132,25 +140,21 @@ $font-weight-bold: 700;
     }
 
     .date {
-      font-size: 0.8rem;
       text-transform: uppercase;
-    }
-
-    .expired {
-      display: none;
-    }
-
-    .score {
-      display: none;
     }
   }
 
   .details {
+    .back {
+      display: none;
+    }
+
     .header {
       background-color: $light-grey;
       display: flex;
       flex-direction: column;
-      height: 14rem;
+      grid-area: header;
+      height: 12rem;
 
       .spacer {
         flex: 6rem;
@@ -161,25 +165,29 @@ $font-weight-bold: 700;
         display: flex;
         flex: 2rem;
         flex-direction: row;
-        line-height: 1.25rem;
+        line-height: 1.1rem;
 
         .logo {
           margin: -1rem 1rem 0 1rem;
         }
 
-        .info {
+        .meta {
           flex: auto;
           margin: 0.5rem 0;
-        }
-
-        .rate {
-          font-size: 0.6rem;
         }
 
         .apply-now-button {
           margin: 1rem;
         }
       }
+    }
+
+    .tab-bar {
+      grid-area: tabbar;
+    }
+
+    .info {
+      grid-area: jdp;
     }
 
     .apply-now {
@@ -199,6 +207,10 @@ $font-weight-bold: 700;
       display: none;
     }
 
+    .sidebar {
+      grid-area: sidebar;
+    }
+
     .apply-now-wrapper {
       background-color: $white;
       border-top: 4px solid $dark-green;
@@ -206,6 +218,7 @@ $font-weight-bold: 700;
       box-shadow: 0rem 0rem 1rem $light-grey;
       display: flex;
       flex-direction: row;
+      grid-area: footer;
       margin: 1rem;
       padding: 1rem;
     }
@@ -214,11 +227,5 @@ $font-weight-bold: 700;
       flex: auto;
       line-height: 1rem;
     }
-  }
-
-  .listings,
-  .details {
-    float: left;
-    max-width: 600px;
   }
 }
