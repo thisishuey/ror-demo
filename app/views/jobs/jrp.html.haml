@@ -1,22 +1,48 @@
-%p#notice= notice
-
-.job-listings
-  %strong 150 Jobs Found
-  %a{:href => "#"} Save Search
-  .sort
-    Sort By:
-    %a.active{:href => "#"} Relevancy
-    |
-    %a{:href => "#"} Date
-  - @jobs.each do |job|
-    .job-listing{:"data-jdp-url" => "/jobs/jdp/#{job.id}"}
-      [Company Logo]
-      .job-title= job.title
-      .job-subtitle= job.company + ' | ' + job.city + ', ' + job.state
-      -# distance will be calculated based on job address
-      .job-distance 20m
-      .job-rate= job.rate
-      .job-favorite= job.favorite
-      .job-score= job.expired ? 'Expired' : job.score
-
-.job-details#jdp
+.job
+  %p#notice= notice
+  .listings
+    .search-details
+      %strong 150 Jobs Found
+      %a{:href => '#'} Save Search
+    .sort
+      Sort By:
+      %a.active{:href => '#'} Relevancy
+      |
+      %a{:href => '#'} Date
+    - @jobs.each do |job|
+      .listing{:'data-jdp-url' => "/jobs/jdp/#{job.id}"}
+        %svg.logo{:'data-jdenticon-value' => job.company, :width => 64, :height => 64}
+        .info
+          .favorite
+            -if job.favorite then
+              %i.fas.fa-heart
+            -else
+              %i.far.fa-heart
+          .date= time_ago_in_words(job.created_at)
+          .title= job.title
+          .subtitle= job.company + ' | ' + job.city + ', ' + job.state
+          .distance
+            %i.fas.fa-car-alt
+            20m
+          .rate= job.rate
+          - if job.expired then
+            %span.expired Job Expired
+          - elsif job.score === '3' then
+            .score.three
+              %i.fas.fa-circle
+              %i.fas.fa-circle
+              %i.fas.fa-circle
+              %span Great Match
+          - elsif job.score === '2' then
+            .score.two
+              %i.fas.fa-circle
+              %i.fas.fa-circle
+              %i.far.fa-circle
+              %span Good Match
+          - elsif job.score === '1' then
+            .score.one
+              %i.fas.fa-circle
+              %i.far.fa-circle
+              %i.far.fa-circle
+              %span OK Match
+  .details#jdp

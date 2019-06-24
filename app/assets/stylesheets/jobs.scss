@@ -2,8 +2,223 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.job-listings,
-.job-details {
-  float: left;
-  max-width: 600px;
+$white: rgb(255, 255, 255);
+$blue: rgb(64, 120, 180);
+$black: rgb(27, 38, 64);
+$grey: rgb(95, 102, 120);
+$light-grey: rgb(220, 220, 220);
+$dark-green: rgb(68, 152, 118);
+$light-green: rgb(149, 204, 86);
+$orange: rgb(242, 187, 68);
+$red: rgb(224, 112, 106);
+$yellow: rgb(245, 206, 110);
+
+$font-weight-bold: 700;
+
+.job {
+  color: $grey;
+  background-color: $white;
+  margin: 0;
+  font-family: lato, sans-serif;
+  font-size: 16px;
+  line-height: 1.5rem;
+  width: 100vw;
+  overflow: scroll;
+
+  strong {
+    color: $black;
+  }
+
+  a {
+    color: $blue;
+    font-weight: $font-weight-bold;
+    text-decoration: none;
+  }
+
+  .search-details {
+    border-top: 1px solid $light-grey;
+    border-bottom: 1px solid $light-grey;
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+
+    strong {
+      flex: auto;
+    }
+  }
+
+  .favorite {
+    .far {
+      color: $light-grey;
+    }
+
+    .fas {
+      color: $red;
+    }
+  }
+
+  .logo {
+    background-color: $white;
+    border: 1px solid $light-grey;
+    border-radius: 0.5rem;
+    margin-right: 0.5rem;
+    max-height: 3.125rem;
+    max-width: 3rem;
+    overflow: hidden;
+    text-indent: -999rem;
+  }
+
+  .title {
+    color: $black;
+    font-weight: $font-weight-bold;
+  }
+
+  .subtitle {
+    font-size: 0.7rem;
+    font-weight: $font-weight-bold;
+  }
+
+  .sort {
+    margin: 1rem;
+
+    a {
+      color: $grey;
+      font-weight: normal;
+
+      &.active {
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+
+  .expired {
+    background-color: $orange;
+    border-radius: 0.5rem;
+    color: $white;
+    display: inline-block;
+    font-size: 0.5rem;
+    font-weight: $font-weight-bold;
+    line-height: 0.5rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .score {
+    font-size: 0.75rem;
+
+    span {
+      margin-left: 0.25rem;
+    }
+
+    &.three .fas {
+      color: $light-green;
+    }
+    &.two .fas {
+      color: $yellow;
+    }
+    &.one .fas {
+      color: $red;
+    }
+  }
+
+  .listing {
+    border-top: 1px solid $light-grey;
+    margin: 1rem;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: row;
+
+    .favorite {
+      float: right;
+    }
+
+    .date {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
+
+    .expired {
+      display: none;
+    }
+
+    .score {
+      display: none;
+    }
+  }
+
+  .details {
+    .header {
+      background-color: $light-grey;
+      display: flex;
+      flex-direction: column;
+      height: 14rem;
+
+      .spacer {
+        flex: 6rem;
+      }
+
+      .overlay {
+        background-color: rgba(255, 255, 255, 0.5);
+        display: flex;
+        flex: 2rem;
+        flex-direction: row;
+        line-height: 1.25rem;
+
+        .logo {
+          margin: -1rem 1rem 0 1rem;
+        }
+
+        .info {
+          flex: auto;
+          margin: 0.5rem 0;
+        }
+
+        .rate {
+          font-size: 0.6rem;
+        }
+
+        .apply-now-button {
+          margin: 1rem;
+        }
+      }
+    }
+
+    .apply-now {
+      background-color: $dark-green;
+      background-image: linear-gradient(to right, $dark-green, $light-green);
+      border-radius: 0.25rem;
+      color: $white;
+      display: inline-block;
+      padding: 0.25rem 3.125rem;
+    }
+
+    .icons {
+      color: $light-grey;
+    }
+
+    .destroy-link {
+      display: none;
+    }
+
+    .apply-now-wrapper {
+      background-color: $white;
+      border-top: 4px solid $dark-green;
+      border-radius: 0.25rem;
+      box-shadow: 0rem 0rem 1rem $light-grey;
+      display: flex;
+      flex-direction: row;
+      margin: 1rem;
+      padding: 1rem;
+    }
+
+    .apply-now-text {
+      flex: auto;
+      line-height: 1rem;
+    }
+  }
+
+  .listings,
+  .details {
+    float: left;
+    max-width: 600px;
+  }
 }

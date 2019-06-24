@@ -25,7 +25,7 @@ $(document).ready(function() {
         type: "GET",
         dataType: "html",
         success: function(data) {
-          $(".job-details#jdp").replaceWith($(".job-details#jdp").html(data));
+          $(".details#jdp").replaceWith($(".details#jdp").html(data));
         },
         error: function(xhr, status) {
           alert("Sorry there was a problem.");

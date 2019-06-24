@@ -1,6 +1,6 @@
 %li
   = skill.content
-  = link_to 'Destroy',
+  .destroy-link= link_to 'Destroy',
     [skill.job, skill],
     method: :delete,
     data: { confirm: 'Are you sure?' }
